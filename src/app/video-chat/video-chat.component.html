@@ -1,0 +1,31 @@
+<div class="video-chat-container">
+  <h1>WebRTC Video Chat</h1>
+  <div class="controls">
+    <button (click)="toggleVideo()">Toggle Video</button>
+    <button (click)="toggleMic()">Toggle Mic</button>
+  </div>
+  <div class="log-bar">
+    <h2>Connection Logs</h2>
+    <div *ngFor="let log of logs">
+      <p>{{ log }}</p>
+    </div>
+  </div>
+  <div class="flex-cards">
+    <mat-card appearance="outlined">
+      <video #localVideo autoplay playsinline
+             [srcObject]="localStream" (loadedmetadata)="onLocalVideoLoaded()">
+      </video>
+      <img *ngIf="!isAudioTrackAvailable(localStream)" width="48" height="48"
+           ngSrc="https://img.icons8.com/color/48/block-microphone--v1.png"
+           class="audio-disabled-icon">
+    </mat-card>
+    <div *ngFor="let remoteVideo of remoteStreams | keyvalue">
+      <mat-card *ngIf="isVideoTrackActive(remoteVideo.value)" appearance="outlined" class="remote-card-container">
+        <video [srcObject]="remoteVideo.value" autoplay playsinline></video>
+        <img *ngIf="!isAudioTrackAvailable(remoteVideo.value)" width="48" height="48"
+             ngSrc="https://img.icons8.com/color/48/block-microphone--v1.png"
+             class="audio-disabled-icon">
+      </mat-card>
+    </div>
+  </div>
+</div>

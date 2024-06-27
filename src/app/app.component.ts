@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {WebrtcService} from "./service/webrtc.service";
+import {Socket} from "socket.io-client";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'WebrtcCommunication';
+private socket! : Socket;
+
+  constructor(private webrtcService: WebrtcService) {
+
+  }
+
+
 }

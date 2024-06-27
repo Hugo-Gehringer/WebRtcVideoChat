@@ -1,0 +1,92 @@
+/* General styles for the component container */
+.video-chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Header styles */
+.video-chat-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Control button styles */
+.controls {
+  margin-bottom: 20px;
+}
+
+/* Flex container for video cards */
+.flex-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Mat-card styles */
+mat-card {
+  width: 300px; /* Adjust the width and gap */
+  height: 400px; /* Set a specific height to achieve a vertical aspect ratio */
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* This is needed to position the video absolutely within the card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Video styling */
+video {
+  border-radius: inherit;
+  position: absolute; /* Position the video absolutely within the card */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Audio disabled icon styling */
+.audio-disabled-icon {
+  position: absolute;
+  margin-top: 10px;
+}
+
+/* Media query adjustments for responsiveness */
+@media (max-width: 1200px) {
+  mat-card {
+    width: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  mat-card {
+    width: inherit;
+  }
+}
+
+@media (max-width: 600px) {
+  mat-card {
+    width: inherit;
+  }
+}
+
+.log-bar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.log-bar h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
