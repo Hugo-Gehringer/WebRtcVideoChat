@@ -40,23 +40,25 @@ export class WebrtcService {
 
     this.socket.on('peer-leave', (message) => {
       this.handlePeerLeave(message);
-      console.log("peer leave, peer id :", message)
+      console.log("Peer leave, peer ID:", message);
     });
 
-    this.socket.on("toggle-mute", (peerId) => {
+    this.socket.on('toggle-mute', (peerId) => {
       const audioTrack = this.findMediaStreamByPeerId(peerId)?.getAudioTracks()[0];
-      console.log("audio track to mute", audioTrack);
-      if(audioTrack?.enabled){
-        this.handleMute(peerId)
-      }else {
-        this.handleUnmute(peerId)
+      if (audioTrack?.enabled) {
+        this.handleMute(peerId);
+      } else {
+        this.handleUnmute(peerId);
       }
-    })
+    });
   }
 
   async getLocalStream(): Promise<MediaStream> {
+    if (this.localStream) {
+      return this.localStream;
+    }
     this.localStream = await navigator.mediaDevices.getUserMedia({
-      video: {width: 640, height: 360},
+      video: { width: 1920, height: 1080 },
       audio: true,
     });
     return this.localStream;
@@ -134,6 +136,7 @@ export class WebrtcService {
     this.localStream.getTracks().forEach((track) => {
       peerConnection.addTrack(track, this.localStream);
     });
+    if (peerId)
     this.addLog(`Peer connected : ${peerId}`);
 
     this.peerConnections.set(peerId, peerConnection);
@@ -167,6 +170,7 @@ export class WebrtcService {
 
     this.remoteStreams.value.delete(peerId);
     this.remoteStreams.next(this.remoteStreams.value);
+    if (peerId)
     this.addLog(`Peer disconnected : ${peerId}`);
 
   }

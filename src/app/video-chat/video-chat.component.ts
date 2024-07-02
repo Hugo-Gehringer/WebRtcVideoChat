@@ -60,7 +60,8 @@ export class VideoChatComponent implements OnInit, OnDestroy{
   }
 
   isVideoTrackActive(mediaStream : MediaStream): boolean {
-    return mediaStream?.getVideoTracks()[0]?.enabled
+    // return mediaStream?.getVideoTracks()[0]?.enabled
+    return true
   }
   isAudioTrackAvailable(mediaStream : MediaStream): boolean {
     return mediaStream?.getAudioTracks()[0]?.enabled

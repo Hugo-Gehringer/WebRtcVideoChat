@@ -1,8 +1,8 @@
 <div class="video-chat-container">
-  <h1>WebRTC Video Chat</h1>
+  <h1>Video Chat</h1>
   <div class="controls">
-    <button (click)="toggleVideo()">Toggle Video</button>
-    <button (click)="toggleMic()">Toggle Mic</button>
+    <button class="button-b" (click)="toggleVideo()">Toggle Video</button>
+    <button class="button" (click)="toggleMic()">Toggle Mic</button>
   </div>
   <div class="log-bar">
     <h2>Connection Logs</h2>
@@ -12,7 +12,7 @@
   </div>
   <div class="flex-cards">
     <mat-card appearance="outlined">
-      <video #localVideo autoplay playsinline
+      <video #localVideo  autoplay playsinline [muted]="true"
              [srcObject]="localStream" (loadedmetadata)="onLocalVideoLoaded()">
       </video>
       <img *ngIf="!isAudioTrackAvailable(localStream)" width="48" height="48"
