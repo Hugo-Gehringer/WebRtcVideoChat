@@ -1,27 +1,28 @@
-# WebrtcCommunication
+# Projet de Communication WebRTC
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+Ce projet a été généré avec [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Il s'agit d'une application de chat vidéo basée sur WebRTC. Elle permet aux utilisateurs de se connecter et de communiquer en temps réel par vidéo et audio. L'application offre également la possibilité de couper le son et la vidéo, et affiche un journal des connexions et déconnexions des utilisateurs.
 
-## Code scaffolding
+## Développement
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Serveur de développement
 
-## Build
+Exécutez `ng serve` pour un serveur de développement. Naviguez vers `http://localhost:4200/`. L'application se rechargera automatiquement si vous modifiez l'un des fichiers source.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Génération de code
 
-## Running unit tests
+Exécutez `ng generate component component-name` pour générer un nouveau composant. Vous pouvez également utiliser `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Construction
 
-## Running end-to-end tests
+Exécutez `ng build` pour construire le projet. Les artefacts de construction seront stockés dans le répertoire `dist/`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Tests
 
-## Further help
+### Tests unitaires
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Exécutez `ng test` pour exécuter les tests unitaires via [Karma](https://karma-runner.github.io).
+
